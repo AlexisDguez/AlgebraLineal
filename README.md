@@ -6,7 +6,6 @@
 
 #### Puedes ver todo el material del curso en [nuestra página de Github](https://joanby.github.io/curso-algebra-lineal/index.html)
 
-#HOLA
 
 ### ¿Qué vas a aprender?
 
