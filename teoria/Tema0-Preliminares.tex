@@ -1,0 +1,2040 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Tema 0 - Preliminares},
+  pdfauthor={Juan Gabriel Gomila \& María Santos},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Tema 0 - Preliminares}
+\author{Juan Gabriel Gomila \& María Santos}
+\date{null}
+
+\begin{document}
+\frame{\titlepage}
+
+\hypertarget{cuerpos}{%
+\section{Cuerpos}\label{cuerpos}}
+
+\begin{frame}{La estructura de cuerpo}
+\protect\hypertarget{la-estructura-de-cuerpo}{}
+
+Cuerpo. Sea \(\mathbb{K}\) un conjunto dotado de dos operaciones,
+adición (\(+\)) y multiplicación (\(\cdot\)). Diremos que \(\mathbb{K}\)
+es un cuerpo si para todo \(a,b\in\mathbb{K}\) se cumplen las
+condiciones siguientes:
+
+\begin{itemize}
+\tightlist
+\item
+  \(+\) y \(\cdot\) son operaciones internas sobre \(\mathbb{K}\):
+  \(a+b\in\mathbb{K}\) y \(a\cdot b\in\mathbb{K}\)
+\item
+  \(+\) y \(\cdot\) son operaciones conmutativas: \(a+b=b+a\) y
+  \(a\cdot b=b\cdot a\)
+\item
+  \(+\) y \(\cdot\) son operaciones asociativas: \((a+b)+c=a+(b+c)\) y
+  \((a\cdot b)\cdot c=a\cdot(b\cdot c)\)
+\item
+  Hay un elemento neutro para la adición:
+  \(a+0=0+a=a\quad \forall a\in\mathbb{K}\)
+\item
+  Hay un elemento neutro para la multiplicación (distinto del neutro de
+  la adición): \(a\cdot 1=1\cdot a=a\quad \forall a\in\mathbb{K}\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{La estructura de cuerpo}
+\protect\hypertarget{la-estructura-de-cuerpo-1}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Elemento opuesto: \(\forall a\in\mathbb{K}\) hay otro elemento
+  \(-a\in\mathbb{K}\) tal que \(a+(-a)=(-a)+a=0\)
+\item
+  Elemento inverso: \(\forall a\in\mathbb{K},\ a\ne 0\) hay otro
+  elemento \(a^{-1}\in\mathbb{K}\) tal que
+  \(a\cdot a^{-1}=a^{-1}\cdot a=1\)
+\item
+  La operación \(\cdot\) es distributiva respecto \(+\):
+  \(a\cdot(b+c)=a\cdot b+a\cdot c\)
+\end{itemize}
+
+Observación. Cuando no pueda haber confusión quitaremos el signo
+\(\cdot\) para denotar la operación de multiplicación. Es decir,
+denotaremos \(a\cdot b\) como \(ab\).
+
+\end{frame}
+
+\begin{frame}{Propiedades de los cuerpos}
+\protect\hypertarget{propiedades-de-los-cuerpos}{}
+
+Propiedades de los cuerpos. En un cuerpo \(\mathbb{K}\) se verifican las
+siguientes propiedades:
+
+\begin{itemize}
+\tightlist
+\item
+  Propiedad de simplificación para la suma: \(a+b=a+c\Rightarrow\ b=c\)
+\item
+  Los neutros (0 y 1) son únicos
+\item
+  Cada elemento tienen un único opuesto
+\item
+  Cada elemento diferente de 0 tiene un único inverso
+\item
+  0 es absorbente para la multiplicación:
+  \(a\cdot 0 = 0\quad \forall a\in\mathbb{K}\)
+\item
+  \(\mathbb{K}\) no tiene divisores de 0: \(ab=0\Rightarrow a=0\) o
+  \(b=0\)
+\end{itemize}
+
+¡Atención! La demostración de esta proposición se encuentra en pdf. Este
+pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o
+bien como material de esta clase.
+
+\end{frame}
+
+\begin{frame}{Cuerpos conocidos}
+\protect\hypertarget{cuerpos-conocidos}{}
+
+\textbf{Ejemplo 1}
+
+Algunos de los cuerpos más conocidos son:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mathbb{Z}_2=\{0,1\}\): Cuerpo finito de dos elementos
+\item
+  \(\mathbb{Q}\): Los números racionales
+
+  \begin{itemize}
+  \tightlist
+  \item
+    suma: \(\frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd}\)
+    \(\qquad a,b,c,d\in\mathbb{Z}\)
+  \item
+    producto: \(\frac{a}{b}\cdot\frac{c}{d} = \frac{ac}{bd}\)
+    \(\qquad a,b,c,d\in\mathbb{Z}\)
+  \end{itemize}
+\item
+  \(\mathbb{R}\): Los números reales
+\item
+  \(\mathbb{C}\): Los números complejos
+
+  \begin{itemize}
+  \tightlist
+  \item
+    suma: \((a+bi)+(c+di) = (a+c)+(b+d)i\)
+    \(\qquad a,b,c,d\in\mathbb{R}\)
+  \item
+    producto: \((a+bi)\cdot(c+di) = (ac-bd)+(ad+bc)i\)
+    \(\qquad a,b,c,d\in\mathbb{R}\)
+  \end{itemize}
+\end{itemize}
+
+\textbf{Ejemplo 2}
+
+Los números naturales, \(\mathbb{N}:=\{0,1,2,...\}\), no son un cuerpo.
+No hay elementos opuestos para ningún elemento del conjunto.
+
+\end{frame}
+
+\begin{frame}{El cuerpo \(\mathbb{Z}_2\)}
+\protect\hypertarget{el-cuerpo-mathbbz_2}{}
+
+Entremos un poquito más en detalle en este cuerpo tan interesante:
+
+\begin{itemize}
+\tightlist
+\item
+  Consta de 2 elementos: el 0 y el 1
+\item
+  Sus tablas de suma y producto son las siguientes
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{Images/Sum.gif}
+\caption{Tabla de la suma}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Images/Prod.gif}
+\caption{Tabla del producto}
+\end{figure}
+
+\end{frame}
+
+\hypertarget{nuxfameros-complejos}{%
+\section{Números complejos}\label{nuxfameros-complejos}}
+
+\begin{frame}{Números complejos}
+\protect\hypertarget{nuxfameros-complejos-1}{}
+
+Conjunto de Números Complejos. \(\mathbb{C}=\{(a,b):a,b\in\mathbb{R}\}\)
+dotado de las operaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  suma: \((a,b)+(c,d) = (a+c,b+d)\) \(\qquad a,b,c,d\in\mathbb{R}\)
+\item
+  producto: \((a,b)\cdot(c,d) = (ac-bd,ad+bc)\)
+  \(\qquad a,b,c,d\in\mathbb{R}\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Números complejos}
+\protect\hypertarget{nuxfameros-complejos-2}{}
+
+Forma Binómica. Si \(z\in\mathbb{C}\) tal que \(z=(a,b)\), su forma
+binómica es \(z=a+bi\)
+
+La forma binómica aparece al definir la unidad imaginaria, \(i\):
+
+Unidad Imaginaria. \(i=(0,1)\)
+
+Entonces, si \(z=(a,b)\), tenemos que
+\[z=(a,b)=(a,0)+(0,b)=(a,0)+(b,0)\cdot(0,1)=a+bi\]
+
+\end{frame}
+
+\begin{frame}{Números complejos}
+\protect\hypertarget{nuxfameros-complejos-3}{}
+
+Parte Real. Si \(z=a+bi\), Re\((z)=a\)
+
+Parte Imaginaria. Si \(z=a+bi\), Im\((z)=b\)
+
+Conjugado de z. Si \(z=a+bi\), \(\bar{z}=a-bi\)
+
+Módulo. \(|z|=\sqrt{z\cdot\bar{z}}\)
+
+Argumento. Si \(z=a+bi\),
+\(\text{arg}(z)=\arctan\left(\frac{b}{a}\right)\). Se da en radianes.
+
+Argumento principal. \(\text{Arg}(z)\in(-\pi,\pi]\)
+
+\end{frame}
+
+\begin{frame}{Plano Complejo}
+\protect\hypertarget{plano-complejo}{}
+
+Los números complejos se suelen representar en un plano, denominado
+plano complejo, donde el eje de las abcisas es el eje Real y, el de las
+ordenadas, el eje Imaginario
+
+\includegraphics{Images/complex.png}
+
+\end{frame}
+
+\begin{frame}{Forma polar}
+\protect\hypertarget{forma-polar}{}
+
+Fórmula de Euler. \(e^{i\theta}=\cos(\theta)+i\sin(\theta)\)
+
+Forma polar. \(z=re^{i\varphi}\) donde \(r = |z|\) y
+\(\varphi = \text{arg}(z)\)
+
+\includegraphics{Images/comlpex2.png}
+
+\end{frame}
+
+\hypertarget{nuxfameros-complejos-con-r}{%
+\section{\texorpdfstring{Números complejos con
+\texttt{R}}{Números complejos con R}}\label{nuxfameros-complejos-con-r}}
+
+\begin{frame}[fragile]{Números complejos con \texttt{R}}
+\protect\hypertarget{nuxfameros-complejos-con-r-1}{}
+
+Podemos definir números complejos de diferentes formas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1 =}\StringTok{ }\DecValTok{2}\OperatorTok{+}\NormalTok{1i }\CommentTok{#Definimos el complejo en forma binómica}
+\NormalTok{z1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2+1i
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z2 =}\StringTok{ }\KeywordTok{complex}\NormalTok{(}\DataTypeTok{real =} \DecValTok{2}\NormalTok{, }\DataTypeTok{imaginary =} \DecValTok{-1}\NormalTok{) }\CommentTok{#Definimos mediante parte real e imaginaria}
+\NormalTok{z2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2-1i
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z3 =}\StringTok{ }\KeywordTok{complex}\NormalTok{(}\DataTypeTok{modulus =} \DecValTok{2}\NormalTok{, }\DataTypeTok{argument =}\NormalTok{ pi) }\CommentTok{#Definimos mediante módulo y argumento}
+\NormalTok{z3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -2+0i
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{R}}
+\protect\hypertarget{nuxfameros-complejos-con-r-2}{}
+
+¡Observación! Si queremos escribir los números complejos \(a+i\) o
+\(a-i\) en \texttt{R}, donde \(a\) puede ser cualquier número real, lo
+tenemos que hacer del siguiente modo: \texttt{a+1i} o \texttt{a-1i}, ya
+que si no la consola nos devolverá error.
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{R}}
+\protect\hypertarget{nuxfameros-complejos-con-r-3}{}
+
+La función \texttt{typeof()} es útil a la hora de comprobar el tipo de
+dato con el que estamos trabajando:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typeof}\NormalTok{(z1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "complex"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typeof}\NormalTok{(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "complex"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typeof}\NormalTok{(z3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "complex"
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{R}}
+\protect\hypertarget{nuxfameros-complejos-con-r-4}{}
+
+Para obtener la parte real y la parte imaginaria de cualquier número
+complejo, utilizamos, respectivamente, las funciones \texttt{Re()} e
+\texttt{Im()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Parte Real}
+\KeywordTok{Re}\NormalTok{(z1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Parte Imaginaria}
+\KeywordTok{Im}\NormalTok{(z3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2.449294e-16
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{R}}
+\protect\hypertarget{nuxfameros-complejos-con-r-5}{}
+
+El conjugado de un número complejo se obtiene mediante la función
+\texttt{Conj()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{Conj}\NormalTok{(z1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2-1i
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{Conj}\NormalTok{(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2+1i
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{Conj}\NormalTok{(z3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -2-0i
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{R}}
+\protect\hypertarget{nuxfameros-complejos-con-r-6}{}
+
+Para obtener el módulo y el argumento (principal) de cualquier número
+complejo, utilizamos, respectivamente, las funciones \texttt{Mod()} y
+\texttt{Arg()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Módulo}
+\KeywordTok{Mod}\NormalTok{(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2.236068
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Argumento principal}
+\KeywordTok{Arg}\NormalTok{(z3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3.141593
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{R}}
+\protect\hypertarget{nuxfameros-complejos-con-r-7}{}
+
+Las operaciones básicas con números complejos se realizan del siguiente
+modo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1}\OperatorTok{+}\NormalTok{z2 }\CommentTok{#Suma de números complejos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4+0i
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{3}\OperatorTok{*}\NormalTok{z3 }\CommentTok{#Producto por un escalar}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -6+0i
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z2}\OperatorTok{*}\NormalTok{z3 }\CommentTok{#Producto de números complejos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -4+2i
+\end{verbatim}
+
+\end{frame}
+
+\hypertarget{trabajando-con-python-en-markdown}{%
+\section{\texorpdfstring{Trabajando con \texttt{Python} en
+Markdown}{Trabajando con Python en Markdown}}\label{trabajando-con-python-en-markdown}}
+
+\begin{frame}[fragile]{Trabajando con \texttt{Python} en Markdown}
+\protect\hypertarget{trabajando-con-python-en-markdown-1}{}
+
+En primer lugar, tendréis que instalar el paquete de \texttt{R} llamado
+\texttt{reticulate} del siguiente modo:
+
+\texttt{install.packages("reticulate")}
+
+Si en algúm momento necesitáis instalar una librería de \texttt{Python}
+en \texttt{Rstudio}, se debe ejecutar la siguiente función:
+
+\texttt{py\_install("NombreDelPaquete")}
+
+\end{frame}
+
+\begin{frame}[fragile]{Trabajando con \texttt{Python} en Markdown}
+\protect\hypertarget{trabajando-con-python-en-markdown-2}{}
+
+Para poder utilizar \texttt{Python} en un Markdown, en el chunk de
+ajustes deberéis añadir las instrucciones que se muestran a continuación
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{library(reticulate)}
+\item
+  \texttt{use\_python("/anaconda3/bin/python3")}
+\end{itemize}
+
+La primera para cargar la librería \texttt{reticulate} y la segunda para
+ubicar donde está \texttt{Python} en nuestro ordenador
+
+\end{frame}
+
+\hypertarget{nuxfameros-complejos-con-python}{%
+\section{\texorpdfstring{Números complejos con
+\texttt{Python}}{Números complejos con Python}}\label{nuxfameros-complejos-con-python}}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Python}}
+\protect\hypertarget{nuxfameros-complejos-con-python-1}{}
+
+Podemos definir números complejos de diferentes formas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1 }\OperatorTok{=} \DecValTok{4}\OperatorTok{+}\NormalTok{3j}
+\NormalTok{z1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(4+3j)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z2 }\OperatorTok{=} \BuiltInTok{complex}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{7}\NormalTok{)}
+\NormalTok{z2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(1+7j)
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Python}}
+\protect\hypertarget{nuxfameros-complejos-con-python-2}{}
+
+¡Observación! Si queremos escribir los números complejos \(a+i\) o
+\(a-i\) en \texttt{Python}, donde \(a\) puede ser cualquier número real,
+lo tenemos que hacer del siguiente modo: \texttt{a+ji} o \texttt{a-ji},
+ya que si no la consola nos devolverá error.
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Python}}
+\protect\hypertarget{nuxfameros-complejos-con-python-3}{}
+
+La función \texttt{type()} es útil a la hora de comprobar el tipo de
+dato con el que estamos trabajando:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{type}\NormalTok{(z1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<class 'complex'>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{type}\NormalTok{(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<class 'complex'>
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Python}}
+\protect\hypertarget{nuxfameros-complejos-con-python-4}{}
+
+Para obtener la parte real y la parte imaginaria de cualquier número
+complejo, utilizamos, \texttt{.real} y \texttt{.imag}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1.real }\CommentTok{#Parte real}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+4.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z2.imag }\CommentTok{#Parte imaginaria}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+7.0
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Python}}
+\protect\hypertarget{nuxfameros-complejos-con-python-5}{}
+
+El conjugado de un número complejo se obtiene mediante
+\texttt{.conjugate()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1.conjugate()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(4-3j)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z2.conjugate()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(1-7j)
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Python}}
+\protect\hypertarget{nuxfameros-complejos-con-python-6}{}
+
+Para obtener el módulo y el argumento (principal) de cualquier número
+complejo, utilizamos, respectivamente, las funciones \texttt{abs()} y
+\texttt{cmath.phase()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ cmath}
+\BuiltInTok{abs}\NormalTok{(z1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+5.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cmath.phase(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1.4288992721907328
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Python}}
+\protect\hypertarget{nuxfameros-complejos-con-python-7}{}
+
+Las operaciones básicas con números complejos se realizan del siguiente
+modo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1}\OperatorTok{+}\NormalTok{z2 }\CommentTok{#Suma de numeros complejos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(5+10j)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5}\OperatorTok{*}\NormalTok{z2 }\CommentTok{#Producto por un escalar}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(5+35j)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1}\OperatorTok{*}\NormalTok{z2 }\CommentTok{#Producto de numeros complejos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(-17+31j)
+\end{verbatim}
+
+\end{frame}
+
+\hypertarget{trabajando-con-octave-en-markdown}{%
+\section{\texorpdfstring{Trabajando con \texttt{Octave} en
+Markdown}{Trabajando con Octave en Markdown}}\label{trabajando-con-octave-en-markdown}}
+
+\begin{frame}[fragile]{Trabajando con \texttt{Octave} en Markdown}
+\protect\hypertarget{trabajando-con-octave-en-markdown-1}{}
+
+Para poder utilizar \texttt{Octave} en Markdown deberéis introducir en
+el chunk de ajustes el siguiente código:
+
+\texttt{knitr::opts\_chunk\$set(echo\ =\ TRUE,\ engine.path\ =\ list(\ octave\ =\ \textquotesingle{}/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave\textquotesingle{}))}
+
+Lo que está entre comillas es la dirección donde se encuentra el
+lenguaje \texttt{Octave} en nuestro ordenador
+
+¡Ojo! A la hora de utilizar chunks de \texttt{Octave}, tendréis que
+introducir las variables cada vez. Es decir, no se guarda la información
+de un chunk a otro
+
+\end{frame}
+
+\hypertarget{nuxfameros-complejos-con-octave}{%
+\section{\texorpdfstring{Números complejos con
+\texttt{Octave}}{Números complejos con Octave}}\label{nuxfameros-complejos-con-octave}}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Octave}}
+\protect\hypertarget{nuxfameros-complejos-con-octave-1}{}
+
+Podemos definir números complejos de diferentes formas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1 }\OperatorTok{=} \FunctionTok{complex}\NormalTok{(}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\NormalTok{)}
+\NormalTok{z2 }\OperatorTok{=} \FloatTok{2}\OperatorTok{-}\FunctionTok{i}
+\NormalTok{tipoDato1 }\OperatorTok{=} \FunctionTok{class}\NormalTok{(z1)}
+\NormalTok{tipoDato2 }\OperatorTok{=} \FunctionTok{class}\NormalTok{(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+z1 =  1 + 2i
+z2 =  2 - 1i
+tipoDato1 = double
+tipoDato2 = double
+\end{verbatim}
+
+La función \texttt{class()} es útil a la hora de comprobar el tipo de
+dato con el que estamos trabajando.
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Octave}}
+\protect\hypertarget{nuxfameros-complejos-con-octave-2}{}
+
+Para obtener la parte real y la parte imaginaria de cualquier número
+complejo, utilizamos, respectivamente, las funciones \texttt{real()} e
+\texttt{imag()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1 }\OperatorTok{=} \FunctionTok{complex}\NormalTok{(}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\NormalTok{)}\OperatorTok{;}
+\NormalTok{z2 }\OperatorTok{=} \FloatTok{2}\OperatorTok{-}\FunctionTok{i}\OperatorTok{;}
+
+\FunctionTok{real}\NormalTok{(z1)}
+\FunctionTok{imag}\NormalTok{(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ans =  1
+ans = -1
+\end{verbatim}
+
+Observación. Para trabajar con los números complejos anteriormente
+definidos, hemos tenido que crearlos de nuevo porque \texttt{Octave}
+trata cada chunk por separado.
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Octave}}
+\protect\hypertarget{nuxfameros-complejos-con-octave-3}{}
+
+El conjugado de un número complejo se obtiene mediante la función
+\texttt{conj()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1 }\OperatorTok{=} \FunctionTok{complex}\NormalTok{(}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\NormalTok{)}\OperatorTok{;}
+\NormalTok{z2 }\OperatorTok{=} \FloatTok{2}\OperatorTok{-}\FunctionTok{i}\OperatorTok{;}
+
+\FunctionTok{conj}\NormalTok{(z1)}
+\FunctionTok{abs}\NormalTok{(z2)}
+\FunctionTok{arg}\NormalTok{(z1)}
+\FunctionTok{angle}\NormalTok{(z2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ans =  1 - 2i
+ans =  2.2361
+ans =  1.1071
+ans = -0.46365
+\end{verbatim}
+
+Para obtener el módulo y el argumento (principal) de cualquier número
+complejo, utilizamos, respectivamente, las funciones \texttt{abs()} y
+\texttt{arg()} o \texttt{angle()}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Números complejos con \texttt{Octave}}
+\protect\hypertarget{nuxfameros-complejos-con-octave-4}{}
+
+Las operaciones básicas con números complejos se realizan del siguiente
+modo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1 }\OperatorTok{=} \FunctionTok{complex}\NormalTok{(}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\NormalTok{)}\OperatorTok{;}
+\NormalTok{z2 }\OperatorTok{=} \FloatTok{2}\OperatorTok{-}\FunctionTok{i}\OperatorTok{;}
+
+\CommentTok{#Suma de numeros complejos}
+\NormalTok{z1}\OperatorTok{+}\NormalTok{z2}
+\CommentTok{# Producto por un escalar}
+\FloatTok{8}\OperatorTok{*}\NormalTok{z2}
+\CommentTok{# Producto de numeros complejos}
+\NormalTok{z1}\OperatorTok{*}\NormalTok{z2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ans =  3 + 1i
+ans =  16 -  8i
+ans =  4 + 3i
+\end{verbatim}
+
+\end{frame}
+
+\hypertarget{polinomios}{%
+\section{Polinomios}\label{polinomios}}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-1}{}
+
+Sea \(\mathbb{K}\) un cuerpo cualquiera
+
+Polinomio en una variable. Objeto de la forma
+\(p(x)=a_0+a_1x+\cdots+a_nx^n\) donde
+\(a_i\in\mathbb{K}\quad \forall i=0,\dots,n\)
+
+Polinomio iguales. Dos polinomios son iguales si tienen el mismo grado y
+los mismos coeficientes. Es decir, dados
+\(p(x) = a_0+a_1x+\cdots+a_nx^n\) y \(q(x) = b_0+b_1x+\cdots+b_mx^m\),
+\(p\) y \(q\) son iguales si, y solo si, \(n = m\) y
+\(a_i=b_i\quad \forall i=0,1,\dots,n\)
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-2}{}
+
+Grado de un polinomio. Si \(a_n\ne 0\) y
+\(a_j = 0\ \forall j=n+1,n+2,\dots\), se dice que el grado del polinomio
+es \(n\).
+
+\textbf{Ejemplo 3}
+
+\begin{itemize}
+\tightlist
+\item
+  \(p(x)=x^2+5x+1\) es un polinomio de segundo grado (grado 2)
+\item
+  \(q(x)=x^4-5\) es un polinomio de grado 4
+\end{itemize}
+
+Polinomio 0. \(p(x)=0\). Es decir, \(a_i=0\) para todo \(i=0,\dots,n\)
+
+Polinomio constante. Polinomio de grado 0
+
+\textbf{Ejemplo 4}
+
+\(p(x)=5\) es un polinomio constante
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-3}{}
+
+Conjunto de polinomios en una variable. Indicaremos por
+\(\mathbb{K}[x]\) el conjunto de polinomios en una determinada variable
+\(x\) y con coeficientes en \(\mathbb{K}\). Sobre \(\mathbb{K}[x]\) se
+pueden considerar la adición y la multiplicación definidas a partir de
+las operaciones de \(\mathbb{K}\) de la manera siguiente
+
+\begin{itemize}
+\tightlist
+\item
+  \(p(x)+q(x)\) es el polinomio que tiene por coeficientes la suma (en
+  \(\mathbb{K}\)) de los coeficientes de \(p(x)\) y \(q(x)\). Más
+  claramente, si \(p(x)=a_0+a_1x+\cdots+a_nx^n\) y
+  \(q(x)=b_0+b_1x+\cdots+b_mx^m\), entonces
+  \(p(x)+q(x)=(a_0+b_0)+(a_1+b_1)x+\cdots\)
+\item
+  \(p(x)q(x)\) es el polinomio \(c_0+c_1(x)+\cdots+c_{nm}x^{n+m}\) donde
+  \(c_j=a_0b_j+a_1b_{j-1}+\cdots+a_jb_0\) \(\quad j=0,1,\dots,n+m\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-4}{}
+
+\textbf{Ejemplo 5}
+
+Sean \(p(x) = x+1\) y \(q(x) = x-1\). Entonces,
+
+\begin{itemize}
+\tightlist
+\item
+  Su suma es \(p(x)+q(x)=(x+1)+(x-1) = (1+1)x+(1-1) = 2x+0=2x\)
+\item
+  Su producto es \(p(x)\cdot q(x)=(x+1)\cdot(x-1)=x^2+x-x-1=x^2-1\)
+\end{itemize}
+
+Con estas operaciones el conjunto \(\mathbb{K}[x]\) presenta una serie
+de propiedades importantes que no permiten decir que es un cuerpo. La
+condición de cuerpo que nos falla aquí es únicamente que no existe
+elemento inverso para todo elemento de \(\mathbb{K}[x]\). De hecho, los
+únicos elementos que tienen inverso son los polinomios constantes y
+diferentes de 0.
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-5}{}
+
+División de polinomios. Dado un polinomio \(p(x)\in\mathbb{K}[x]\), la
+división de \(p(x)\) entre otro polinomio \(s(x)\in\mathbb{K}[x]\) de
+grado menor o igual al de \(p(x)\), consiste en hallar 2 polinomios
+\(q(x),r(x)\in\mathbb{K}[x]\) tales que \[p(x) = s(x)q(x)+r(x)\]
+
+donde el grado de \(r(x)\) es siempre menor que el del divisor \(s(x)\)
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-6}{}
+
+Polinomio irreducible. Si es un polinomio con coeficientes en un cuerpo,
+no es constante y no se puede descomponer en producto de otros
+polinomios sin que esta descomposición sea trivial.
+
+\textbf{Ejemplo 6}
+
+\(p(x) = 1+x^2\in\mathbb{R}[x]\) es irreducible ya que no puede
+escribirse de forma \(r(x)s(x)\) con \(r(x),s(x)\in\mathbb{R}[x]\),
+\(r(x),s(x)\ne p(x)\) y \(r(x),s(x)\ne 1\).
+
+En cambio, \(q(x)=1-x^2\) no es irreducible, ya que \(q(x)=(1-x)(1+x)\)
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-7}{}
+
+Dado un polinomio \(p(x)\in\mathbb{K}[x]\), podemos asociar a \(p(x)\)
+una aplicación o función \(\mathbb{K}\longrightarrow\mathbb{K}\)
+definida de la manera siguiente: a cada elemento \(\alpha\in\mathbb{K}\)
+le hacemos corresponder \(p(\alpha)=a_0+a_1\alpha+\cdots+a_n\alpha^n\).
+Esta función es conocida como función evaluadora y el proceso de
+sustituir la variable \(x\) por cualquier elemento \(\alpha\) del cuerpo
+se lo conoce como evaluar un polinomio en \(\alpha\).
+
+En el caso en que \(\mathbb{K}\) sea un cuerpo infinito, podemos
+identificar polinomio con función asociada.
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-8}{}
+
+Raíz de un polinomio. Sean \(p(x)\in\mathbb{K}[x]\) y
+\(\alpha\in\mathbb{K}\), diremos que \(\alpha\) es raíz de \(p(x)\) si
+\(p(\alpha)=0\).
+
+Proposición. \(\alpha\in\mathbb{K}\) es raíz de \(p(x)\)
+\(\Leftrightarrow\) \(p(x)=(x-\alpha)q(x)\) con
+\(q(x)\in\mathbb{K}[x]\).
+
+De aquí deducimos que si un polinomio de \(\mathbb{K}[x]\) de grado
+mayor que 1 tiene una raíz (en \(\mathbb{K}\)) entonces no es
+irreducible. El recíproco no es cierto.
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-9}{}
+
+\textbf{Demostración}
+
+Primero probaremos la implicación hacia la izquierda,
+\(p(x)=(x-\alpha)q(x)\) con
+\(q(x)\in\mathbb{K}[x]\Rightarrow\)\(\alpha\in\mathbb{K}\) es raíz de
+\(p(x)\)
+
+Evaluando \(p(x)\) en \(\alpha\) tenemos que
+\[p(\alpha)=(\alpha-\alpha)q(\alpha) = 0\] lo que, por definición,
+implica que \(\alpha\) es raíz de \(p(x)\)
+
+Ahora nos queda demostrar la implicación a la derecha
+\(\alpha\in\mathbb{K}\) es raíz de \(p(x)\) \(\Rightarrow\)
+\(p(x)=(x-\alpha)q(x)\) con \(q(x)\in\mathbb{K}[x]\)
+
+Si dividimos \(p(x)\) entre \(x-\alpha\), obtenemos
+\[p(x) = (x-\alpha)q(x)+r(x)\]
+
+Ahora, por hipótesis tenemos que
+\[p(\alpha) = (\alpha-\alpha)q(\alpha)+r(\alpha) = 0 +r(\alpha) = 0\]
+
+\end{frame}
+
+\begin{frame}{Polinomios}
+\protect\hypertarget{polinomios-10}{}
+
+Con lo cual \(r(\alpha) = 0\)
+
+Ahora bien, el grado de \(r(x)\) debe ser estrictamente menor al del
+divisor, \(x-\alpha\), que es 1. Por tanto, \(r(x)\) es un polinomio
+constante. Además, como \(r(\alpha) =0\), tenemos que \[r(x)\equiv 0\]
+
+Así pues, acabamos de demostrar que \(p(x) = (x-\alpha)q(x)\)
+
+\end{frame}
+
+\hypertarget{polinomios-con-r}{%
+\section{\texorpdfstring{Polinomios con
+\texttt{R}}{Polinomios con R}}\label{polinomios-con-r}}
+
+\begin{frame}[fragile]{Polinomios con \texttt{R}}
+\protect\hypertarget{polinomios-con-r-1}{}
+
+Necesitaremos instalar y cargar los paquetes \texttt{polynom} y
+\texttt{pracma} para poder utilizar las siguientes funciones.
+
+Para definir un polinomio en \texttt{R}, lo haremos mediante la función
+\texttt{polynomial(coef=...)} e igualaremos el parámetro \texttt{coef}
+al vector de coeficientes en orden ascendente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p =}\StringTok{ }\KeywordTok{polynomial}\NormalTok{(}\DataTypeTok{coef =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1 + 2*x + 3*x^2 + 4*x^3 + 5*x^4 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q =}\StringTok{ }\KeywordTok{polynomial}\NormalTok{(}\DataTypeTok{coef =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1 + 2*x + x^2 
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{R}}
+\protect\hypertarget{polinomios-con-r-2}{}
+
+Para comprobar si dos polinomios son iguales, utilizamos el operador
+lógico \texttt{==}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{==}\StringTok{ }\NormalTok{q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
+
+Claramente son diferentes, porque, tal y como los hemos definido
+anteriormente, ni siquiera tienen el mismo grado
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{R}}
+\protect\hypertarget{polinomios-con-r-3}{}
+
+Una forma de calcular el grado de un polinomio en \texttt{R} es mediante
+la función \texttt{length()} aplicada al polinomio. Eso sí, teniendo en
+cuenta que, tal y como hemos definido los polinomios,
+\(p(x)=a_0+\cdots+a_nx^n\), estos empiezan en 0. Con lo cual, para
+obtener el grado exacto del polinomio, habrá que restar una unidad al
+resultado que nos devuelva \texttt{length()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gradoP =}\StringTok{ }\KeywordTok{length}\NormalTok{(p)}\OperatorTok{-}\DecValTok{1}
+\NormalTok{gradoQ =}\StringTok{ }\KeywordTok{length}\NormalTok{(q)}\OperatorTok{-}\DecValTok{1}
+\NormalTok{gradoP}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gradoQ}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{R}}
+\protect\hypertarget{polinomios-con-r-4}{}
+
+Las operaciones suma y producto de polinomios, se llevan a cabo del
+siguiente modo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Suma}
+\NormalTok{p}\OperatorTok{+}\NormalTok{q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+2 + 4*x + 4*x^2 + 4*x^3 + 5*x^4 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Producto de polinomios}
+\NormalTok{p}\OperatorTok{*}\NormalTok{q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1 + 4*x + 8*x^2 + 12*x^3 + 16*x^4 + 14*x^5 + 5*x^6 
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{R}}
+\protect\hypertarget{polinomios-con-r-5}{}
+
+La divisióin de polinomios se realiza mediante \texttt{/}, pero con ello
+solo obtenemos el cociente. Para obtener el resto hay que utlizar
+\texttt{\%\%}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cociente =}\StringTok{ }\NormalTok{p }\OperatorTok{/}\StringTok{ }\NormalTok{q}
+\NormalTok{resto =}\StringTok{ }\NormalTok{p}\OperatorTok{%%}\NormalTok{q}
+\NormalTok{cociente}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+10 - 6*x + 5*x^2 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resto}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+-9 - 12*x 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q}\OperatorTok{*}\NormalTok{cociente }\OperatorTok{+}\StringTok{ }\NormalTok{resto }\OperatorTok{==}\StringTok{ }\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{R}}
+\protect\hypertarget{polinomios-con-r-6}{}
+
+Para evaluar polinomios, utilizaremos la función
+\texttt{predict(polinomio,x0)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{predict}\NormalTok{(p,}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{predict}\NormalTok{(q,}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{R}}
+\protect\hypertarget{polinomios-con-r-7}{}
+
+Para hallar las raíces de un polinomio, podemos utilizar la función
+\texttt{polyroot} introduciendo por parámetro el vector de coeficientes
+en orden creciente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Las raíces del polinomio x^2+2x+1}
+\KeywordTok{polyroot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -1-0i -1+0i
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Las raíces del polinomio x^2-4}
+\KeywordTok{polyroot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{4}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  2+0i -2+0i
+\end{verbatim}
+
+Fijaos que \texttt{R} nos devuelve un vector de números complejos a
+pesar de que las soluciones en ambos casos son dos números reales
+
+\end{frame}
+
+\hypertarget{polinomios-con-python}{%
+\section{\texorpdfstring{Polinomios con
+\texttt{Python}}{Polinomios con Python}}\label{polinomios-con-python}}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-1}{}
+
+Para definir un polinomio en \texttt{Python}, lo haremos mediante las
+funciones \texttt{sympy.symbols()} para indicar con qué variable
+trabajamos y \texttt{sympy.Poly()} introduciendo el polinomio por
+parámetro:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ sympy }
+\NormalTok{x }\OperatorTok{=}\NormalTok{ sympy.symbols(}\StringTok{'x'}\NormalTok{) }
+\NormalTok{p }\OperatorTok{=}\NormalTok{ sympy.Poly(x}\OperatorTok{**}\DecValTok{2}\NormalTok{) }
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Poly(x**2, x, domain='ZZ')
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q }\OperatorTok{=}\NormalTok{ sympy.Poly(}\DecValTok{1}\OperatorTok{+}\NormalTok{x}\OperatorTok{+}\NormalTok{x}\OperatorTok{**}\DecValTok{3}\NormalTok{) }
+\NormalTok{q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Poly(x**3 + x + 1, x, domain='ZZ')
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-2}{}
+
+O bien, otra forma de definir polinomios es mediante la librería
+\texttt{numpy}, introduciendo como parámetro el vector de coeficientes
+en orden descendente
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy}
+\NormalTok{r }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]) }
+\BuiltInTok{print}\NormalTok{(r)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   2
+1 x + 2 x + 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(s)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   4     3     2
+1 x + 2 x + 3 x + 4 x + 5
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-3}{}
+
+Para comprobar si dos polinomios son iguales, utilizamos el operador
+lógico \texttt{==}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{==}\NormalTok{ q  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+False
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r }\OperatorTok{==}\NormalTok{ s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+False
+\end{verbatim}
+
+Claramente son diferentes, porque, tal y como los hemos definido
+anteriormente, ni siquiera tienen el mismo grado.
+
+\end{frame}
+
+\begin{frame}{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-4}{}
+
+Observación. Fijaos que no podemos comparar los polinomios creados con
+librerías diferentes, ya que da error al ser diferentes tipos de objeto.
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-5}{}
+
+Para calcular el grado de cualquier polinomio en \texttt{Python}, lo
+haremos utilizando \texttt{Polynomial.degree()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p.degree()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q.degree()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+3
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-6}{}
+
+o, si estamos trabajando con la librería \texttt{numpy}, lo hacemos
+mediante la función \texttt{Polynomial.order}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]) }
+\NormalTok{s }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{])}
+\NormalTok{r.order}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s.order}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+4
+\end{verbatim}
+
+¡Ojo! Fijaos que hemos tenido que volver a definir los polinomios. De no
+estar, la consola nos devolvería error.
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-7}{}
+
+Las operaciones suma y producto de polinomios, se llevan a cabo del
+siguiente modo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p}\OperatorTok{+}\NormalTok{q }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Poly(x**3 + x**2 + x + 1, x, domain='ZZ')
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p}\OperatorTok{*}\NormalTok{q }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Poly(x**5 + x**3 + x**2, x, domain='ZZ')
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-8}{}
+
+y, con la librería \texttt{numpy}, la suma y el producto de polinomios
+se realizan del siguiente modo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]) }
+\NormalTok{s }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{])}
+\NormalTok{r}\OperatorTok{+}\NormalTok{s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+poly1d([1, 2, 4, 6, 6])
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r}\OperatorTok{*}\NormalTok{s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+poly1d([ 1,  4,  8, 12, 16, 14,  5])
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-9}{}
+
+La división de polinomios la obtenemos tal y como se muestra a
+continuación (solo utilizando la librería \texttt{numpy}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]) }
+\NormalTok{s }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{])}
+\NormalTok{s}\OperatorTok{/}\NormalTok{r}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(poly1d([1., 0., 2.]), poly1d([3.]))
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r}\OperatorTok{*}\NormalTok{numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{])}\OperatorTok{+}\DecValTok{3} \OperatorTok{==}\NormalTok{ s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+True
+\end{verbatim}
+
+Observad que primero se devuelve el cociente y, a continuación, el resto
+de la división
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-10}{}
+
+Para evaluar polinomios, haciendo uso de la librería \texttt{numpy}, lo
+hacemos del siguiente modo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]) }
+\NormalTok{s }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{])}
+\NormalTok{r(}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+57
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Python}}
+\protect\hypertarget{polinomios-con-python-11}{}
+
+Para encontrar las raíces de polinomios, haciendo uso de la librería
+\texttt{numpy}, lo hacemos utilizando \texttt{Polynomial.r}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]) }
+\NormalTok{s }\OperatorTok{=}\NormalTok{ numpy.poly1d([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{])}
+\NormalTok{r.r}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+array([-1., -1.])
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s.r}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+array([-1.28781548+0.85789676j, -1.28781548-0.85789676j,
+        0.28781548+1.41609308j,  0.28781548-1.41609308j])
+\end{verbatim}
+
+\end{frame}
+
+\hypertarget{polinomios-con-octave}{%
+\section{\texorpdfstring{Polinomios con
+\texttt{Octave}}{Polinomios con Octave}}\label{polinomios-con-octave}}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-1}{}
+
+Para definir un polinomio en \texttt{Octave}, lo haremos mediante
+vectores. Para mostrarlos simbólicamente, utilizaremos la función
+\texttt{polyout(vector,\textquotesingle{}variable\textquotesingle{})},
+donde las entradas del vector son los coeficientes en orden descendente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;} 
+\FunctionTok{polyout}\NormalTok{(p}\OperatorTok{,}\StringTok{'x'}\NormalTok{) }
+\NormalTok{q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}
+\FunctionTok{polyout}\NormalTok{(q}\OperatorTok{,}\StringTok{'x'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1*x^4 + 2*x^3 + 3*x^2 + 4*x^1 + 5
+1*x^3 + 0*x^2 + 0*x^1 + 1
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-2}{}
+
+Una forma de calcular el grado de un polinomio en \texttt{Octave} es
+mediante la función \texttt{length()} aplicada al vector de
+coeficientes. Eso sí, teniendo en cuenta que, tal y como hemos definido
+los polinomios, \(p(x)=a_0+\cdots+a_nx^n\), estos empiezan en 0. Con lo
+cual, para obtener el grado exacto del polinomio, habrá que restar una
+unidad al resultado que nos devuelva \texttt{length()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;} 
+\NormalTok{q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}
+\NormalTok{gradoP }\OperatorTok{=} \FunctionTok{length}\NormalTok{(p)}\OperatorTok{-}\FloatTok{1}
+\NormalTok{gradoQ }\OperatorTok{=} \FunctionTok{length}\NormalTok{(q)}\OperatorTok{-}\FloatTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+gradoP =  4
+gradoQ =  3
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-3}{}
+
+Como, en \texttt{Octave}, los polinomios vienen representados por
+vectores, sumar polinomios no es una operación directa en
+\texttt{Octave}, ya que la mayoría de veces nos encontraremos con
+vectores de diferente longitud. En esos casos, se nos devolverá error
+por consola.
+
+Lo mismo ocurre si quisiésemos comprobar que dos polinomios de diferente
+grado son iguales
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-4}{}
+
+Una solución a este problema es rellenar con 0 el vector de coeficientes
+hasta alcanzar la máxima longitud de los vectores que tengamos. Esto lo
+podemos conseguir mediante la función \texttt{zeros()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;}\NormalTok{ q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}\NormalTok{ gradoP }\OperatorTok{=} \FunctionTok{length}\NormalTok{(p)}\OperatorTok{-}\FloatTok{1}\OperatorTok{;}\NormalTok{ gradoQ }\OperatorTok{=} \FunctionTok{length}\NormalTok{(q)}\OperatorTok{-}\FloatTok{1}\OperatorTok{;}
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FunctionTok{zeros}\NormalTok{(}\FloatTok{1}\OperatorTok{,}\NormalTok{ gradoQ}\OperatorTok{-}\NormalTok{gradoP)}\OperatorTok{,}\NormalTok{ p]}\OperatorTok{,}\NormalTok{ q }\OperatorTok{=}\NormalTok{ [}\FunctionTok{zeros}\NormalTok{(}\FloatTok{1}\OperatorTok{,}\NormalTok{ gradoP}\OperatorTok{-}\NormalTok{gradoQ)}\OperatorTok{,}\NormalTok{ q]}\OperatorTok{,}\NormalTok{ suma }\OperatorTok{=}\NormalTok{ p}\OperatorTok{+}\NormalTok{q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+p =
+
+   1   2   3   4   5
+
+q =
+
+   0   1   0   0   1
+
+suma =
+
+   1   3   3   4   6
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-5}{}
+
+Lo que sí podemos hacer es multiplicar polinomios mediante la función
+\texttt{conv}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;}
+\NormalTok{q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}
+\NormalTok{producto }\OperatorTok{=} \FunctionTok{conv}\NormalTok{(p}\OperatorTok{,}\NormalTok{q)}\OperatorTok{;}
+\FunctionTok{polyout}\NormalTok{(producto}\OperatorTok{,}\StringTok{'x'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1*x^7 + 2*x^6 + 3*x^5 + 5*x^4 + 7*x^3 + 3*x^2 + 4*x^1 + 5
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-6}{}
+
+La división de polinomios se consigue mediante la función
+\texttt{deconv(numerador,denominador)}. Esta función devuelve los
+vecotres de coeficientes del cociente y el resto de la división
+polinómica, en orden descendente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;}
+\NormalTok{q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}
+\NormalTok{[cociente}\OperatorTok{,}\NormalTok{ resto] }\OperatorTok{=} \FunctionTok{deconv}\NormalTok{(p}\OperatorTok{,}\NormalTok{q)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+cociente =
+
+   1   2
+
+resto =
+
+   0   0   3   3   3
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-7}{}
+
+Fijaos que el vector de coeficientes del resto tiene la misma longitud
+que el dividendo, con lo cual podemos realizar la comprobación de la
+división:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;}
+\NormalTok{q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}
+\NormalTok{[cociente}\OperatorTok{,}\NormalTok{ resto] }\OperatorTok{=} \FunctionTok{deconv}\NormalTok{(p}\OperatorTok{,}\NormalTok{q)}\OperatorTok{;}
+\FunctionTok{length}\NormalTok{(resto) }\OperatorTok{==} \FunctionTok{length}\NormalTok{(p)}
+\NormalTok{p }\OperatorTok{==} \FunctionTok{conv}\NormalTok{(q}\OperatorTok{,}\NormalTok{cociente) }\OperatorTok{+}\NormalTok{ resto}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ans = 1
+ans =
+
+  1  1  1  1  1
+\end{verbatim}
+
+donde los unos representan el valor lógico \texttt{True}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-8}{}
+
+Para evaluar polinomios, utilizamos la función
+\texttt{polyval(polinomio,x0)}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;}
+\NormalTok{q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}
+\FunctionTok{polyval}\NormalTok{(p}\OperatorTok{,}\FloatTok{0}\NormalTok{) }
+\FunctionTok{polyval}\NormalTok{(q}\OperatorTok{,}\FloatTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ans =  5
+ans =  28
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Polinomios con \texttt{Octave}}
+\protect\hypertarget{polinomios-con-octave-9}{}
+
+Para hallar las raíces de un polinomio, hacemos uso de la función
+\texttt{roots()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{2}\OperatorTok{,}\FloatTok{3}\OperatorTok{,}\FloatTok{4}\OperatorTok{,}\FloatTok{5}\NormalTok{]}\OperatorTok{;}
+\NormalTok{q }\OperatorTok{=}\NormalTok{ [}\FloatTok{1}\OperatorTok{,}\FloatTok{0}\OperatorTok{,}\FloatTok{1}\NormalTok{]}\OperatorTok{;}
+\FunctionTok{roots}\NormalTok{(p)}
+\FunctionTok{roots}\NormalTok{(q)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ans =
+
+  -1.28782 + 0.85790i
+  -1.28782 - 0.85790i
+   0.28782 + 1.41609i
+   0.28782 - 1.41609i
+
+ans =
+
+  -0 + 1i
+   0 - 1i
+\end{verbatim}
+
+\end{frame}
+
+\hypertarget{el-principio-de-inducciuxf3n}{%
+\section{El principio de inducción}\label{el-principio-de-inducciuxf3n}}
+
+\begin{frame}{El principio de inducción}
+\protect\hypertarget{el-principio-de-inducciuxf3n-1}{}
+
+Principio de Inducción. El principio de inducción afirma que si \(P(n)\)
+es una propiedad sobre \(n\in\mathbb{N}\) y se cumple que
+
+\begin{itemize}
+\tightlist
+\item
+  \(P(1)\) es cierta (Caso base)
+\item
+  Si \(P(n)\) es cierta, entonces \(P(n+1)\) es cierta (Caso inductivo)
+\end{itemize}
+
+entonces \(P(n)\) es cierta para todo \(n\in\mathbb{N}\)
+
+\end{frame}
+
+\begin{frame}{El principio de inducción}
+\protect\hypertarget{el-principio-de-inducciuxf3n-2}{}
+
+El principio de Inducción también es válido si \(n\in\mathbb{Z}\) del
+siguiente modo:
+
+Si \(P(n)\) es una propiedad sobre \(n\in\mathbb{Z}\), con
+\(n_0\in\mathbb{Z}\) y se cumple que
+
+\begin{itemize}
+\tightlist
+\item
+  \(P(n_0)\) es cierta
+\item
+  Si \(P(n)\) es cierta, entonces \(P(n+1)\) es cierta
+\end{itemize}
+
+entonces \(P(n)\) es cierta para todo \(n\in\mathbb{Z},\ n\ge n_0\)
+
+\end{frame}
+
+\begin{frame}{El principio de inducción}
+\protect\hypertarget{el-principio-de-inducciuxf3n-3}{}
+
+Principio de Inducción completa. Si \(P(n)\) es una propiedad sobre
+\(n\in\mathbb{N}\) y se cumple que
+
+\begin{itemize}
+\tightlist
+\item
+  \(P(1)\) es cierta (Caso base)
+\item
+  Si \(P(n)\) es cierta para \(1,2,\dots, n\), entonces \(P(n+1)\) es
+  cierta (Caso inductivo)
+\end{itemize}
+
+entonces \(P(n)\) es cierta para todo \(n\in\mathbb{N}\)
+
+\end{frame}
+
+\begin{frame}{El principio de inducción}
+\protect\hypertarget{el-principio-de-inducciuxf3n-4}{}
+
+El principio de Inducción completa también es válido si
+\(n\in\mathbb{Z}\) del siguiente modo:
+
+Si \(P(n)\) es una propiedad sobre \(n\in\mathbb{Z}\),
+\(n_0\in\mathbb{Z}\) y se cumple que
+
+\begin{itemize}
+\tightlist
+\item
+  \(P(n_0)\) es cierta
+\item
+  Si \(P(n)\) es cierta para \(n_0\le n\), entonces \(P(n+1)\) es cierta
+\end{itemize}
+
+entonces \(P(n)\) es cierta para todo \(n\in\mathbb{Z}\ n\ge n_0\)
+
+\end{frame}
+
+\end{document}

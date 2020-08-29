@@ -1,0 +1,21 @@
+---
+title: "Números complejos con Octave"
+author: "Alexis Frías Domínguez"
+date: "29/8/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, engine.path =list(octave='/bin/octave'))
+```
+
+Resolved la ecuación $1+z+z^2=0$ para $z = (x, y)$ escribiendo:
+\begin{center}
+$(1, 0) + (x, y) + (x, y)(x, y) = (0, 0)$
+\end{center}
+
+```{r}
+
+```
+
+
